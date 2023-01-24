@@ -13,12 +13,12 @@ export class VistaAlta extends Vista {
 		super(div)
           this.controlador = controlador
           
-          this.div =$('#alta')
-          this.escudo =  document.getElementById('inputfile')
+          this.div = $('#alta')
+          this.escudo =  $('#inputfile')
           this.valorescudo = null
-          this.escudo.addEventListener('change', e => {
+          this.escudo.on('change', e => {
 
-               const archivo = this.escudo.files[0]
+               const archivo = this.escudo[0].files[0]
                const lector = new FileReader()
                lector.addEventListener('load',() => {
                     this.valorescudo = lector.result
@@ -26,38 +26,38 @@ export class VistaAlta extends Vista {
                lector.readAsDataURL(archivo)
           })
           /*Botones pantalla liga*/
-		this.btnEnviar = $('button').eq(0)
+		this.btnEnviar = this.div.find('button').eq(0)
 		this.btnEnviar.on( "click", this.insertarIndex.bind(this) ); 
 	}
 
      insertarIndex(){
           
-          let nombre = this.div.getElementsByTagName('input')[1]
-          let valornombre = nombre.value
+          let nombre = this.div.find('input').eq(1)
+          let valornombre = nombre.val()
           
-          let descripcion = this.div.getElementsByTagName('textarea')[0]
-          let valordescripcion = descripcion.value
+          let descripcion = this.div.find('textarea').eq(0)
+          let valordescripcion = descripcion.val()
           
-          let fecha = this.div.getElementsByTagName('input')[2]
-          let valorfecha = fecha.value
+          let fecha = this.div.find('input').eq(2)
+          let valorfecha = fecha.val()
 
-          let ligas = this.div.getElementsByTagName('input')[3]
-          let valorligas = ligas.value
+          let ligas = this.div.find('input').eq(3)
+          let valorligas = ligas.val()
 
-          let colores1 = document.getElementById('coloreees1')
-          let colores2 = document.getElementById('coloreees2')
-          let colores3 = document.getElementById('coloreees3')
-          let colores4 = document.getElementById('coloreees4')
-          let colores5 = document.getElementById('coloreees5')
-          let colores6 = document.getElementById('coloreees6')
+          let colores1 = $('#coloreees1')
+          let colores2 = $('#coloreees2')
+          let colores3 = $('#coloreees3')
+          let colores4 = $('#coloreees4')
+          let colores5 = $('#coloreees5')
+          let colores6 = $('#coloreees6')
 
           let colores = []
-          colores.push(colores1.checked)
-          colores.push(colores2.checked)
-          colores.push(colores3.checked)
-          colores.push(colores4.checked)
-          colores.push(colores5.checked)
-          colores.push(colores6.checked)
+          colores.push(colores1.is(':checked'))
+          colores.push(colores2.is(':checked'))
+          colores.push(colores3.is(':checked'))
+          colores.push(colores4.is(':checked'))
+          colores.push(colores5.is(':checked'))
+          colores.push(colores6.is(':checked'))
           if(colores[0]==true){colores[0]='Blanco'}
           if(colores[1]==true){colores[1]='Negro'}
           if(colores[2]==true){colores[2]='Rojo'}
@@ -66,15 +66,15 @@ export class VistaAlta extends Vista {
           if(colores[5]==true){colores[5]='Amarillo'}
                
           let valorascenso=[]
-          let ascendido1 = document.getElementById('ascendido1')
-          let ascendido2 = document.getElementById('ascendido2')
-          valorascenso.push(ascendido1.checked)
-          valorascenso.push(ascendido2.checked)
+          let ascendido1 = $('#ascendido1')
+          let ascendido2 = $('#ascendido2')
+          valorascenso.push(ascendido1.is(':checked'))
+          valorascenso.push(ascendido2.is(':checked'))
           if(valorascenso[0]==true){valorascenso[0]='Si'}
           if(valorascenso[1]==true){valorascenso[1]='No'}
           
-          let comunidad = this.div.getElementsByTagName('select')[0]
-          let valorcomunidad = comunidad.value
+          let comunidad = this.div.find('select').eq(0)
+          let valorcomunidad = comunidad.val()
           let objeto = new Equipos(this.valorescudo,valornombre,valordescripcion,valorfecha,valorligas,colores,valorascenso,valorcomunidad)
           this.controlador.insertar(objeto)
      }
