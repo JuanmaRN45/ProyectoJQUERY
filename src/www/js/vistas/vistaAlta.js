@@ -13,7 +13,7 @@ export class VistaAlta extends Vista {
 		super(div)
           this.controlador = controlador
           
-          this.div = document.getElementById('alta')
+          this.div =$('#alta')
           this.escudo =  document.getElementById('inputfile')
           this.valorescudo = null
           this.escudo.addEventListener('change', e => {
@@ -26,8 +26,8 @@ export class VistaAlta extends Vista {
                lector.readAsDataURL(archivo)
           })
           /*Botones pantalla liga*/
-		this.btnEnviar = this.div.getElementsByTagName('button')[0]
-		this.btnEnviar.onclick = this.insertarIndex.bind(this)
+		this.btnEnviar = $('button').eq(0)
+		this.btnEnviar.on( "click", this.insertarIndex.bind(this) ); 
 	}
 
      insertarIndex(){

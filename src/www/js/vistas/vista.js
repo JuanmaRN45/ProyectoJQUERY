@@ -17,10 +17,10 @@ export class Vista{
 	 */
 	mostrar(ver){
 		if(ver){
-			this.div.style.display='block'
+			this.div.show(1)
 		}
 		else{
-			this.div.style.display='none'
+			this.div.hide(1)
 		}
 	}
 }

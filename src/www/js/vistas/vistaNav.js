@@ -19,14 +19,14 @@ export class VistaNav{
 		this.nav = nav
 
 		/*Botones nav*/
-		this.btnLogo = this.nav.getElementsByTagName('li')[0]
-		this.btnLiga = this.nav.getElementsByTagName('li')[1]
-		this.btnEquipos = this.nav.getElementsByTagName('li')[2]
-		this.btnBusqueda = this.nav.getElementsByTagName('li')[3]
-		this.btnLogo.onclick = this.pulsarLiga.bind(this)
-		this.btnLiga.onclick = this.pulsarLiga.bind(this)
-		this.btnEquipos.onclick = this.pulsarEquipos.bind(this)
-		this.btnBusqueda.onclick = this.pulsarNavListado.bind(this)
+		this.btnLogo = $('li').eq(0)
+		this.btnLiga = $('li').eq(1)
+		this.btnEquipos = $('li').eq(2)
+		this.btnBusqueda = $('li').eq(3)
+		this.btnLogo.on( "click", this.pulsarLiga.bind(this) );
+		this.btnLiga.on( "click", this.pulsarLiga.bind(this))
+		this.btnEquipos.on( "click", this.pulsarEquipos.bind(this))
+		this.btnBusqueda.on( "click", this.pulsarNavListado.bind(this))
 		
 	}
 	pulsarLiga() {

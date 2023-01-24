@@ -19,7 +19,7 @@ class Controlador {
 	 * Cuando carga la web ejecuta el método iniciar
 	 */
 	constructor() {
-		window.onload=this.iniciar.bind(this)
+		$(window).on('load',this.iniciar.bind(this))
 	}
 
 	/**
@@ -33,25 +33,25 @@ class Controlador {
 	 * Método iniciarVistar que se ejecuta al iniciar el modelo
 	 */
 	iniciarVistas() {
-		this.nav = document.getElementsByTagName('nav')[0]
+		this.nav = $('nav')
 		this.vistaNav = new VistaNav(this.nav, this)
 
-        this.divLiga = document.getElementById('liga')
+        this.divLiga = $('#liga')
         this.vistaLiga = new VistaLiga(this.divLiga, this)
 
-        this.divEquipos = document.getElementById('equipos')
+        this.divEquipos = $('#equipos')
         this.vistaEquipos = new VistaEquipos(this.divEquipos, this)
 
-		this.divAlta=document.getElementById("alta");
+		this.divAlta= $('#alta')
 		this.vistaAlta=new VistaAlta(this.divAlta, this);
 
-		this.divModTabla = document.getElementById('modTabla')
+		this.divModTabla = $('#modTabla')
         this.vistaModTabla = new VistaModTabla(this.divModTabla, this)
 
-		this.divModEquipo = document.getElementById('modEquipo')
+		this.divModEquipo = $('#modEquipo')
 		this.vistaModEquipo = new VistaModEquipo(this.divModEquipo, this)
 
-		this.divListado = document.getElementById('listado')
+		this.divListado = $('#listado')
 		this.vistaListado = new VistaListado(this.divListado, this)
 		this.pulsarNavLiga()
 	}
