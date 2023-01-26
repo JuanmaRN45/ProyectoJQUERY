@@ -12,10 +12,39 @@ export class VistaEquipos extends Vista {
 		super(div)
           this.controlador = controlador
           this.div2 = $('#liEquipos');
+          this.div2.on('mouseover',this.aemet.bind(this))
           this.div2.on('click',this.listar.bind(this))
           this.divWonder = $('.divWonder').eq(0)
 	}
 
+     aemet()
+     {
+          const clave = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYXZpZHNhY2hlMDhAZ21haWwuY29tIiwianRpIjoiZTQ2ZDNlNWEtMjQ1Ni00ZDUyLTg0ZjYtYjc2ZjFjOThkOTAyIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE2NzQ1NzM5NjMsInVzZXJJZCI6ImU0NmQzZTVhLTI0NTYtNGQ1Mi04NGY2LWI3NmYxYzk4ZDkwMiIsInJvbGUiOiIifQ.mFEFzKjKcpHxvyinDg6iXDen6I2cdKBExm0Qb_ke5aY';
+          let peticion = {
+               'async': true,
+               'crossDomain': true,
+               'url': 'https://opendata.aemet.es/opendata/api/prediccion/provincia/hoy/06/?api_key=' + clave,
+               'method': 'GET',
+               'headers': {
+                    'cache-control': 'no-cache'
+               }
+          };
+
+          $.ajax(peticion)
+          .done((response) => {
+               if(response.estado == 200) {
+                    // Obtener los datos de la respuesta
+                    $.ajax(response.datos)
+                         .done((response) => {
+                              this.footer = $('#footer').eq(0)
+                              console.log(this.footer)
+                              this.copy = $('<p></p>')
+                              this.footer.append(this.copy)
+                              this.copy.text(response)
+                         })
+               }
+          })
+     }
      listar(){
           this.divWonder.empty()
           const peticion =window.indexedDB.open("WonderLeague")
