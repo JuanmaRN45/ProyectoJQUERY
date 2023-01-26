@@ -11,15 +11,13 @@ export class VistaEquipos extends Vista {
 	constructor(div, controlador) {
 		super(div)
           this.controlador = controlador
-          this.div2 = document.getElementById('liEquipos');
-          this.div2.onclick=this.listar.bind(this)
-          this.divWonder = document.getElementsByClassName('divWonder')[0]
+          this.div2 = $('#liEquipos');
+          this.div2.on('click',this.listar.bind(this))
+          this.divWonder = $('.divWonder').eq(0)
 	}
 
      listar(){
-          while(this.divWonder.firstChild){
-               this.divWonder.firstChild.remove()
-          }
+          this.divWonder.empty()
           const peticion =window.indexedDB.open("WonderLeague")
           peticion.onsuccess= (evento) =>{
                this.bd=evento.target.result;	
@@ -31,98 +29,92 @@ export class VistaEquipos extends Vista {
                     console.log(this.lista)
                     let i=0
                     for(let listas of this.lista){
-                         let contenedor = document.createElement('div')
-                         contenedor.classList.add('contenedor')
-                         this.divWonder.appendChild(contenedor)
+                         let contenedor = $('<div></div>')
+                         contenedor.addClass('contenedor')
+                         this.divWonder.append(contenedor)
 
-                         let imagen = document.createElement('img')
-                         imagen.src = this.lista[i]['escudo']
-                         imagen.classList.add('imgEscudo')
-                         contenedor.appendChild(imagen)
+                         let imagen = $('<img></img>')
+                         imagen.attr('src',this.lista[i]['escudo'])
+                         imagen.addClass('imgEscudo')
+                         contenedor.append(imagen)
 
-                         let divNombre = document.createElement('div')
-                         divNombre.classList.add('divsFormularios')
-                         divNombre.classList.add('partidos')
-                         contenedor.appendChild(divNombre)
+                         let divNombre = $('<div></div>')
+                         divNombre.addClass('divsFormularios partidos')
+                         contenedor.append(divNombre)
 
-                         let labelNom = document.createElement('label')
-                         labelNom.textContent = 'Nombre: '
-                         divNombre.appendChild(labelNom)
+                         let labelNom = $('<label></label>')
+                         labelNom.text('Nombre: ')
+                         divNombre.append(labelNom)
 
-                         let pNom = document.createElement('p')
-                         pNom.textContent = this.lista[i]['nombre']
-                         divNombre.appendChild(pNom)
+                         let pNom = $('<p></p>')
+                         pNom.text(this.lista[i]['nombre'])
+                         divNombre.append(pNom)
 
-                         let divDesc = document.createElement('div')
-                         divDesc.classList.add('divsFormularios')
-                         divDesc.classList.add('puntos')
-                         contenedor.appendChild(divDesc)
+                         let divDesc = $('<div></div>')
+                         divDesc.addClass('divsFormularios puntos')
+                         contenedor.append(divDesc)
 
-                         let labelDes = document.createElement('label')
-                         labelDes.textContent = 'Descripción: '
-                         divDesc.appendChild(labelDes)
+                         let labelDes = $('<label></label>')
+                         labelDes.text('Descripción: ')
+                         divDesc.append(labelDes)
 
-                         let pDes = document.createElement('p')
-                         pDes.classList.add('descripcion')
-                         pDes.textContent = this.lista[i]['descripcion']
-                         divDesc.appendChild(pDes)
+                         let pDes = $('<p></p>')
+                         pDes.addClass('descripcion')
+                         pDes.text(this.lista[i]['descripcion'])
+                         divDesc.append(pDes)
 
-                         let divfecha = document.createElement('div')
-                         divfecha.classList.add('divsFormularios')
-                         divfecha.classList.add('goalaverage')
-                         contenedor.appendChild(divfecha)
+                         let divfecha = $('<div></div>')
+                         divfecha.addClass('divsFormularios goalaverage')
+                         contenedor.append(divfecha)
 
-                         let labelfec = document.createElement('label')
-                         labelfec.textContent = 'Fecha de Fundación: '
-                         divfecha.appendChild(labelfec)
+                         let labelfec = $('<label></label>')
+                         labelfec.text('Fecha de Fundación: ')
+                         divfecha.append(labelfec)
 
-                         let pfec = document.createElement('p')
-                         pfec.textContent = this.lista[i]['fechaCreacion']
-                         divfecha.appendChild(pfec)
+                         let pfec = $('<p></p>')
+                         pfec.text(this.lista[i]['fechaCreacion'])
+                         divfecha.append(pfec)
 
-                         let divcom = document.createElement('div')
-                         divcom.classList.add('divsFormularios')
-                         divcom.classList.add('golesaf')
-                         contenedor.appendChild(divcom)
+                         let divcom = $('<div></div>')
+                         divcom.addClass('divsFormularios golesaf')
+                         contenedor.append(divcom)
 
-                         let labelcom = document.createElement('label')
-                         labelcom.textContent = 'Comunidad Autónoma: '
-                         divcom.appendChild(labelcom)
+                         let labelcom = $('<label></label>')
+                         labelcom.text('Comunidad Autónoma: ')
+                         divcom.append(labelcom)
 
-                         let pcom = document.createElement('p')
-                         pcom.classList.add('titulos')
-                         pcom.textContent = this.lista[i]['comunidad']
-                         divcom.appendChild(pcom)
+                         let pcom = $('<p></p>')
+                         pcom.addClass('titulos')
+                         pcom.text(this.lista[i]['comunidad'])
+                         divcom.append(pcom)
 
-                         let divra = document.createElement('div')
-                         divra.classList.add('divsFormularios')
-                         divra.classList.add('golesec')
-                         contenedor.appendChild(divra)
+                         let divra = $('<div></div>')
+                         divra.addClass('divsFormularios golesec')
+                         contenedor.append(divra)
 
-                         let labelra = document.createElement('label')
-                         labelra.textContent = 'Recién Ascendido: '
-                         divra.appendChild(labelra)
+                         let labelra = $('<label></label>')
+                         labelra.text('Recién Ascendido: ')
+                         divra.append(labelra)
 
-                         let pra = document.createElement('p')
+                         let pra = $('<p></p>')
                          if(this.lista[i]['ascendido'][0]=='Si'){
-                              pra.textContent = this.lista[i]['ascendido'][0]
+                              pra.text(this.lista[i]['ascendido'][0])
                          }else{
-                              pra.textContent = this.lista[i]['ascendido'][1]
+                              pra.text(this.lista[i]['ascendido'][1])
                          }
-                         divra.appendChild(pra)
+                         divra.append(pra)
 
-                         let divBot = document.createElement('div')
-                         divBot.classList.add('divsFormularios')
-                         divBot.classList.add('btnEditar')
-                         contenedor.appendChild(divBot)
+                         let divBot = $('<div></div>')
+                         divBot.addClass('divsFormularios btnEditar')
+                         contenedor.append(divBot)
 
-                         let botEd = document.createElement('button')
-                         botEd.textContent = 'Editar'
-                         divBot.appendChild(botEd)
+                         let botEd = $('<button></button>')
+                         botEd.text('Editar')
+                         divBot.append(botEd)
 
-                         let botEliminar = document.createElement('button')
-                         botEliminar.textContent = 'Eliminar'
-                         divBot.appendChild(botEliminar)
+                         let botEliminar = $('<button></button>')
+                         botEliminar.text('Eliminar')
+                         divBot.append(botEliminar)
 
                          i=i+1
                     }
