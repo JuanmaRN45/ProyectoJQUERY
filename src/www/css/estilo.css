@@ -447,6 +447,10 @@ a{
     p{
         font-size: 15px;
     }
+
+    form{
+        height:120%;
+    }
 }
 
 @media (min-width:1250.4px){
@@ -760,7 +764,7 @@ p{
 
     #titulos{
         top: 210px;
-        left: 10%;
+        left: 6%;
     }
 
     .btnEnviar{
@@ -1229,7 +1233,7 @@ p{
 
     #titulos{
         top: 210px;
-        left: 10%;
+        left: 6%;
     }
 
     .btnEnviar{

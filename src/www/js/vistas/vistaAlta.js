@@ -13,6 +13,36 @@ export class VistaAlta extends Vista {
 		super(div)
           this.controlador = controlador
           
+          this.fechaa = $('#fechaaa')
+          this.fechaa.datepicker()
+
+          this.seleect = $('#comunidad')
+          this.seleect.selectmenu()
+
+          this.nombreLista = [
+               "Real Madrid",
+               "FC Barcelona",
+               "Real Sociedad",
+               "Betis",
+               "Atlético de Madrid",
+               "Villareal",
+               "Sevilla",
+               "Celta de Vigo",
+               "Osasusna",
+               "Rayo Vallecano",
+               "Athletic Club de Bilbao",
+               "Valencia",
+               "Elche"
+          ]
+          this.nombreee = $('#nombreee')
+          this.nombreee.autocomplete({source: this.nombreLista})
+
+
+          this.ascenso1 = $('#ascendido1')
+          this.ascenso1.checkboxradio()
+          this.ascenso2 = $('#ascendido2')
+          this.ascenso2.checkboxradio()
+
           this.div = $('#alta')
           this.escudo =  $('#inputfile')
           this.valorescudo = null
@@ -27,6 +57,7 @@ export class VistaAlta extends Vista {
           })
           /*Botones pantalla liga*/
 		this.btnEnviar = this.div.find('button').eq(0)
+          this.btnEnviar.button()
 		this.btnEnviar.on( "click", this.insertarIndex.bind(this) ); 
 	}
 
