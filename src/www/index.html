@@ -19,23 +19,23 @@
             </div>
             <nav>
                 <input type="checkbox" id="check" />
-                <label for="check" id="btnMenu">
+                <label tabindex="2" role="menuitemcheckbox" for="check" id="btnMenu" >
                     <img src="./assets/menu.png" alt="Icono de menú"/>
                 </label>
                 <ul>
-                    <li id="flex0"><img href="./index.html"src="./assets/logo-proyecto.png" alt="Logo Wonder League"/></li>
-                    <li><a class="opciones" id="liLiga">Liga</a></li>
-                    <li><a class="opciones" id="liEquipos">Equipos</a></li>
-                    <li class="opciones" ><a id="busqueda" ><label for="busquedaaa"><button>🔎</button></label></a><input  id="busquedaaa"type="text" placeholder="Búsqueda"></li>
+                    <li tabindex="1" role="menuitem" aria-label="logo wonder league" id="flex0"><img href="./index.html"src="./assets/logo-proyecto.png" alt="Logo Wonder League"/></li>
+                    <li tabindex="2" role="menuitem"><a class="opciones" id="liLiga">Liga</a></li>
+                    <li tabindex="3" role="menuitem"><a class="opciones" id="liEquipos">Equipos</a></li>
+                    <li class="opciones" ><a id="busqueda" ><label for="busquedaaa" aria-label="botón para búsqueda"><button tabindex="4">🔎</button></label></a><input  tabindex="5"id="busquedaaa"type="text" aria-label="escribe busqueda"role="text"></li>
                 </ul>
             </nav>
         </header>
         <div>
             <div id="liga">
                 <div id="divWonderLeague">
-                    <h1>WONDER LEAGUE</h1>
+                    <h1 tabindex="9" aria-label="titulo wonder league">WONDER LEAGUE</h1>
                 </div>
-                <table>
+                <table tabindex="10"aria-label="tabla clasificacion liga">
                     <thead>
                         <tr>
                             <th>Posición</th>
@@ -51,59 +51,59 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td><img src="./assets/realmadrid.png" alt="Escudo Real Madrid"width="40px"height="40px" ></td>
-                            <td>Real Madrid</td>
-                            <td>15</td>
-                            <td>45</td>
-                            <td>40</td>
-                            <td>23</td>
-                            <td>+17</td>
-                            <td>🗑️✏️</td>
+                            <td tabindex="11"aria-label="posicion primero">1</td>
+                            <td tabindex="11"aria-label="escudo real madrid"><img src="./assets/realmadrid.png" alt="Escudo Real Madrid"width="40px"height="40px" ></td>
+                            <td tabindex="11"aria-label="nombre real madrid">Real Madrid</td>
+                            <td tabindex="11"aria-label="partidos jugados 15">15</td>
+                            <td tabindex="11"aria-label="puntos 45">45</td>
+                            <td tabindex="11"aria-label="goles a favor 40">40</td>
+                            <td tabindex="11"aria-label="goles en contra 23">23</td>
+                            <td tabindex="11"aria-label="diferencia de goles +17">+17</td>
+                            <td tabindex="11"aria-label="opciones borrar y editar">🗑️✏️</td>
                         </tr>
                         <tr>
-                            <td>2</td>
-                            <td><img src="./assets/barsa.png" alt="Escudo  barsa"width="40px"height="40px" ></td>
-                            <td>FC Barcelona</td>
-                            <td>15</td>
-                            <td>42</td>
-                            <td>40</td>
-                            <td>33</td>
-                            <td>+7</td>
-                            <td>🗑️✏️</td>
+                            <td tabindex="12"aria-label="posicion segundo">2</td>
+                            <td tabindex="12"aria-label="escudo barsa"><img src="./assets/barsa.png" alt="Escudo  barsa"width="40px"height="40px" ></td>
+                            <td tabindex="12"aria-label="nombre FC Barcelona">FC Barcelona</td>
+                            <td tabindex="12"aria-label="partidos jugados 15">15</td>
+                            <td tabindex="12"aria-label="puntos 42">42</td>
+                            <td tabindex="12"aria-label="goles a favor 40">40</td>
+                            <td tabindex="12"aria-label="goles en contra 33">33</td>
+                            <td tabindex="12"aria-label="diferencia de goles +7">+7</td>
+                            <td tabindex="12"aria-label="opciones borrar y editar">🗑️✏️</td>
                         </tr>
                         <tr>
-                            <td>3</td>
-                            <td><img src="./assets/atleti.png" alt="Escudo atleti"width="40px"height="40px" ></td>
-                            <td>Atlético de Madrid</td>
-                            <td>15</td>
-                            <td>36</td>
-                            <td>33</td>
-                            <td>27</td>
-                            <td>+6</td>
-                            <td>🗑️✏️</td>
+                            <td tabindex="13"aria-label="posicion tercero">3</td>
+                            <td tabindex="13"aria-label="escudo atleti"><img src="./assets/atleti.png" alt="Escudo atleti"width="40px"height="40px" ></td>
+                            <td tabindex="13"aria-label="nombre Atlético de madrid">Atlético de Madrid</td>
+                            <td tabindex="13"aria-label="partidos jugados 15">15</td>
+                            <td tabindex="13"aria-label="puntos 36">36</td>
+                            <td tabindex="13"aria-label="goles a favor 33">33</td>
+                            <td tabindex="13"aria-label="goles en contra 23">23</td>
+                            <td tabindex="13"aria-label="diferencia de goles +10">+10</td>
+                            <td tabindex="13"aria-label="opciones borrar y editar">🗑️✏️</td>
                         </tr>
                         <tr>
-                            <td>4</td>
-                            <td><img src="./assets/betis.png" alt="Escudo betis"width="40px"height="40px" ></td>
-                            <td>Betis</td>
-                            <td>15</td>
-                            <td>36</td>
-                            <td>40</td>
-                            <td>31</td>
-                            <td>+9</td>
-                            <td>🗑️✏️</td>
+                            <td tabindex="14"aria-label="posicion cuarto">4</td>
+                            <td tabindex="14"aria-label="escudo betis"><img src="./assets/betis.png" alt="Escudo betis"width="40px"height="40px" ></td>
+                            <td tabindex="14"aria-label="nombre betis">Betis</td>
+                            <td tabindex="14"aria-label="partidos jugados 15">15</td>
+                            <td tabindex="14"aria-label="puntos 36">36</td>
+                            <td tabindex="14"aria-label="goles a favor 40">40</td>
+                            <td tabindex="14"aria-label="goles en contra 31">31</td>
+                            <td tabindex="14"aria-label="diferencia de goles +9">+9</td>
+                            <td tabindex="14"aria-label="opciones borrar y editar">🗑️✏️</td>
                         </tr>
                         <tr>
-                            <td>5</td>
-                            <td><img src="./assets/realsociedad.png" alt="Escudo Real sociedad"width="40px"height="40px" ></td>
-                            <td>Real Sociedad</td>
-                            <td>15</td>
-                            <td>30</td>
-                            <td>26</td>
-                            <td>20</td>
-                            <td>+6</td>
-                            <td>🗑️✏️</td>
+                            <td tabindex="15"aria-label="posicion quinto">5</td>
+                            <td tabindex="15"aria-label="escudo real sociedad"><img src="./assets/realsociedad.png" alt="Escudo Real sociedad"width="40px"height="40px" ></td>
+                            <td tabindex="15"aria-label="nombre real sociedad">Real Sociedad</td>
+                            <td tabindex="15"aria-label="partidos jugados 15">15</td>
+                            <td tabindex="15"aria-label="puntos 30">30</td>
+                            <td tabindex="15"aria-label="goles a favor 26">26</td>
+                            <td tabindex="15"aria-label="goles en contra 20">20</td>
+                            <td tabindex="15"aria-label="diferencia de goles +6">+6</td>
+                            <td tabindex="15"aria-label="opciones borrar y editar">🗑️✏️</td>
                         </tr>
                     </tbody>
                 </table>
@@ -112,33 +112,6 @@
             <div id="equipos">
                 <div id="divWonderLeague" class="divWonder">
                     <h1> EQUIPOS </h1>
-                    <!--<div class="contenedor">
-                        <img  src="./assets/realmadrid.png" class="imgEscudo" alt="Escudo Real madrid">
-                        <div class="divsFormularios partidos">
-                            <label>Nombre:&nbsp;</label>
-                            <p></p>
-                        </div>
-                        <div class="divsFormularios puntos">
-                            <label>Descripción:&nbsp;</label>
-                            <p class="descripcion"></p>
-                        </div>
-                        <div class="divsFormularios goalaverage" >
-                            <label>Fecha de Fundación:&nbsp;</label>
-                            <p></p>
-                        </div>
-                        <div class="divsFormularios golesaf">
-                            <label>Comunidad Autónoma:&nbsp;</label>
-                            <p class="titulos"></p>
-                        </div>
-                        <div class="divsFormularios golesec">
-                            <label>Reacién Ascendido:&nbsp;</label>
-                            <p></p>
-                        </div>
-                        <div class="divsFormularios btnEditar">
-                            <button>Editar</button>
-                            <button>Eliminar</button>
-                        </div>
-                    </div>-->
                 </div>
             </div>
             <div id="alta">
@@ -176,13 +149,13 @@
                         </fieldset>
                         <fieldset class="divsFormularios" id="ascenso">
                             <label for="ascendido">Recien ascendido:</label><br>
-                            <input id="ascendido1"  type="radio" name="ascendido"><label for="ascendido1">Sí</label><br>
+                            <input aria-lable="selección si om no es recien ascendido" id="ascendido1"  type="radio" name="ascendido"><label for="ascendido1">Sí</label><br>
                             <input id="ascendido2" type="radio" name="ascendido"><label for="ascendido2">No</label>
                         </fieldset>
                         <fieldset class="divsFormularios" id="titulos">
                             <label for="comunidad">Comunidad Autónoma</label><br>
                             <select id="comunidad">
-                                <option>Comunidad de Madrid</option>
+                                <option id="comunidad" aria-label="selector desplegable de comunidad autónoma">Comunidad de Madrid</option>
                                 <option>Cataluña</option>
                                 <option>Andalucía</option>
                                 <option>País Vasco</option>
@@ -196,26 +169,26 @@
                 <div id="divWonderLeague">
                     <h1> Resultado de la Búsqueda </h1>
                     <div class="contenedor">
-                        <img  src="./assets/realmadrid.png" class="imgEscudo" alt="Escudo Real madrid">
+                        <img  tabindex="10"src="./assets/realmadrid.png" class="imgEscudo" alt="Escudo Real madrid">
                         <div class="divsFormularios partidos">
                             <label>Nombre:&nbsp;</label>
-                            <p>Real Madrid C.F</p> 
+                            <p tabindex="11"aria-label="equipo real madrid">Real Madrid C.F</p> 
                         </div>
                         <div class="divsFormularios puntos">
                             <label>Descripción:&nbsp;</label>
-                            <p class="descripcion">El Real Madrid Club de Fútbol, más conocido simplemente como Real Madrid, es una entidad polideportiva con sede en Madrid, España. Fue declarada oficialmente registrada como club de fútbol por sus socios el 6 de marzo de 1902 con el objeto de la práctica y desarrollo de este deporte —si bien sus orígenes datan del año 1900.</p>
+                            <p role="text" tabindex="12" aria-label="descripcion real madrid"class="descripcion">El Real Madrid Club de Fútbol, más conocido simplemente como Real Madrid, es una entidad polideportiva con sede en Madrid, España. Fue declarada oficialmente registrada como club de fútbol por sus socios el 6 de marzo de 1902 con el objeto de la práctica y desarrollo de este deporte —si bien sus orígenes datan del año 1900.</p>
                         </div>
                         <div class="divsFormularios goalaverage" >
                             <label>Fecha de Fundación:&nbsp;</label>
-                            <p>6 de marzo de 1902</p>
+                            <p tabindex="13" aria-label="6 de marzo de 1902 ">6 de marzo de 1902</p>
                         </div>
                         <div class="divsFormularios golesaf">
                             <label>Comunidad Autónoma:&nbsp;</label><br>
-                            <p class="titulos">Comunidad de Madrid</p>
+                            <p tabindex="14"aria-label="Comunidad de Madrid"class="titulos">Comunidad de Madrid</p>
                         </div>
                         <div class="divsFormularios golesec">
                             <label>Reacién Ascendido:&nbsp;</label>
-                            <p>No</p>
+                            <p tabindex="15"aria-label="no recien ascendido">No</p>
                         </div>
                         <div class="divsFormularios btnEditar">
                             <a href="../Mockup_modificacion/Mockup_modificacion.html"><button>Editar</button></a>

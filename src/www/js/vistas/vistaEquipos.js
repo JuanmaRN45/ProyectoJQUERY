@@ -12,9 +12,15 @@ export class VistaEquipos extends Vista {
 		super(div)
           this.controlador = controlador
           this.div2 = $('#liEquipos');
-          this.div2.on('mouseover',this.aemet.bind(this))
           this.div2.on('click',this.listar.bind(this))
           this.divWonder = $('.divWonder').eq(0)
+
+          this.footer = $('#footer').eq(0)
+          this.copy = $('<p></p>')
+          this.copy.attr('tabindex',800)
+          this.copy.attr('aria-label',this.copy.val())
+          this.footer.append(this.copy)
+          this.div2.on('mouseover',this.aemet.bind(this))
 	}
 
      aemet()
@@ -36,10 +42,7 @@ export class VistaEquipos extends Vista {
                     // Obtener los datos de la respuesta
                     $.ajax(response.datos)
                          .done((response) => {
-                              this.footer = $('#footer').eq(0)
-                              console.log(this.footer)
-                              this.copy = $('<p></p>')
-                              this.footer.append(this.copy)
+                              this.copy.val()
                               this.copy.text(response)
                          })
                }
@@ -64,6 +67,8 @@ export class VistaEquipos extends Vista {
 
                          let imagen = $('<img></img>')
                          imagen.attr('src',this.lista[i]['escudo'])
+                         imagen.attr('tabindex',9+i)
+                         imagen.attr('aria-label','escudo equipo '+this.lista[i]['nombre'])
                          imagen.addClass('imgEscudo')
                          contenedor.append(imagen)
 
@@ -77,6 +82,8 @@ export class VistaEquipos extends Vista {
 
                          let pNom = $('<p></p>')
                          pNom.text(this.lista[i]['nombre'])
+                         pNom.attr('tabindex',9+i)
+                         pNom.attr('aria-label','nombre de equipo '+this.lista[i]['nombre'])
                          divNombre.append(pNom)
 
                          let divDesc = $('<div></div>')
@@ -90,6 +97,8 @@ export class VistaEquipos extends Vista {
                          let pDes = $('<p></p>')
                          pDes.addClass('descripcion')
                          pDes.text(this.lista[i]['descripcion'])
+                         pDes.attr('tabindex',9+i)
+                         pDes.attr('aria-label','descripcion de equipo '+this.lista[i]['descripcion'])
                          divDesc.append(pDes)
 
                          let divfecha = $('<div></div>')
@@ -102,6 +111,8 @@ export class VistaEquipos extends Vista {
 
                          let pfec = $('<p></p>')
                          pfec.text(this.lista[i]['fechaCreacion'])
+                         pfec.attr('tabindex',9+i)
+                         pfec.attr('aria-label','fecha de fundacion '+this.lista[i]['fechaCreacion'])
                          divfecha.append(pfec)
 
                          let divcom = $('<div></div>')
@@ -115,6 +126,8 @@ export class VistaEquipos extends Vista {
                          let pcom = $('<p></p>')
                          pcom.addClass('titulos')
                          pcom.text(this.lista[i]['comunidad'])
+                         pcom.attr('tabindex',9+i)
+                         pcom.attr('aria-label','comunidad a la que pertenece '+this.lista[i]['comunidad'])
                          divcom.append(pcom)
 
                          let divra = $('<div></div>')
@@ -128,8 +141,12 @@ export class VistaEquipos extends Vista {
                          let pra = $('<p></p>')
                          if(this.lista[i]['ascendido'][0]=='Si'){
                               pra.text(this.lista[i]['ascendido'][0])
+                              pra.attr('tabindex',9+i)
+                              pra.attr('aria-label','equipo recien ascendido')
                          }else{
                               pra.text(this.lista[i]['ascendido'][1])
+                              pra.attr('tabindex',9+i)
+                              pra.attr('aria-label','equipo no recien ascendido')
                          }
                          divra.append(pra)
 
@@ -139,10 +156,12 @@ export class VistaEquipos extends Vista {
 
                          let botEd = $('<button></button>')
                          botEd.text('Editar')
+                         botEd.attr('tabindex',9+i)
                          divBot.append(botEd)
 
                          let botEliminar = $('<button></button>')
                          botEliminar.text('Eliminar')
+                         botEliminar.attr('tabindex',9+i)
                          divBot.append(botEliminar)
 
                          i=i+1

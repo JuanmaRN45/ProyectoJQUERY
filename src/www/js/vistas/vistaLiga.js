@@ -13,8 +13,8 @@ export class VistaLiga extends Vista {
           this.controlador = controlador
 
           /*Botones pantalla liga*/
-		this.btnAnadir = document.getElementById('anaaaaadir')
-		this.btnAnadir.onclick = this.pulsarAnadir.bind(this)
+		this.btnAnadir = $('#anaaaaadir')
+		this.btnAnadir.on("click",this.pulsarAnadir.bind(this))
 	}
 
      pulsarAnadir(){
