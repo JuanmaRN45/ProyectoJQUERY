@@ -14,6 +14,11 @@ export class idb{
     crear(){
         const tabla = this.conexion.createObjectStore('Equipos', {autoIncrement: true})
     }
+    /**
+     * 
+     * @param {Function} objeto objeto de la clase equipos con los datos del equipos a insertar
+     * @param {Function} callback llamada de aviso al modelo
+     */
     insertar(objeto, callback){
         const transaccion = this.conexion.transaction(['Equipos'], 'readwrite')
         transaccion.onerror = evento => {throw 'Error al insertar'}

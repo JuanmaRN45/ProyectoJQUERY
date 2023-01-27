@@ -30,7 +30,11 @@ export class Modelo{
 			callback()
 		}
 	}
-
+	/**
+	 * 
+	 * @param {Function} objeto objeto de la clase equipos con los datos del equipos a insertar
+	 * @param {Function} callback llamada de aviso al modelo
+	 */
 	insertar(objeto,callback){
 		this.idb.insertar(objeto,callback)
 	}
