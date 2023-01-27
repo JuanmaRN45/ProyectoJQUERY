@@ -22,7 +22,9 @@ export class VistaEquipos extends Vista {
           this.footer.append(this.copy)
           this.div2.on('mouseover',this.aemet.bind(this))
 	}
-
+     /**
+      * Método para inserción de la api de la aemet en un p en el footer al hacer mouseover en el apartado de menú de equipos
+      */
      aemet()
      {
           const clave = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkYXZpZHNhY2hlMDhAZ21haWwuY29tIiwianRpIjoiZTQ2ZDNlNWEtMjQ1Ni00ZDUyLTg0ZjYtYjc2ZjFjOThkOTAyIiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE2NzQ1NzM5NjMsInVzZXJJZCI6ImU0NmQzZTVhLTI0NTYtNGQ1Mi04NGY2LWI3NmYxYzk4ZDkwMiIsInJvbGUiOiIifQ.mFEFzKjKcpHxvyinDg6iXDen6I2cdKBExm0Qb_ke5aY';
@@ -48,6 +50,9 @@ export class VistaEquipos extends Vista {
                }
           })
      }
+     /**
+      * Método para listar y crear dinámicamente las tarjetas en el apartado equipos
+      */
      listar(){
           this.divWonder.empty()
           const peticion =window.indexedDB.open("WonderLeague")

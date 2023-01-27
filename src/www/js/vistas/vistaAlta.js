@@ -60,7 +60,9 @@ export class VistaAlta extends Vista {
           this.btnEnviar.button()
 		this.btnEnviar.on( "click", this.insertarIndex.bind(this) ); 
 	}
-
+     /**
+      * Método para inserción en IndexedDB de los datos del formulario de alta equipos
+      */
      insertarIndex(){
           
           let nombre = this.div.find('input').eq(1)

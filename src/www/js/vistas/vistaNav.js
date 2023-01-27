@@ -29,14 +29,21 @@ export class VistaNav{
 		this.btnBusqueda.on( "click", this.pulsarNavListado.bind(this))
 		
 	}
+	/**
+	 * método para ir a la vista liga al pulsar el botón de liga del menú y el logo
+	 */
 	pulsarLiga() {
 		this.controlador.pulsarNavLiga()
 	}
-
+	/**
+	 * método para ir a la vista equipos al pulsar el botón de equipos del menú
+	 */
 	pulsarEquipos() {
 		this.controlador.pulsarNavEquipos()
 	}
-
+	/**
+	 * método para ir a la vista de la búsqueda al pulsar el botón de la lupa del menú
+	 */
 	pulsarNavListado() {
 		this.controlador.pulsarListado()
 	}

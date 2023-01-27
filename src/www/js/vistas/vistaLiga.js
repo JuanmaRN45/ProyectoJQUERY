@@ -16,7 +16,9 @@ export class VistaLiga extends Vista {
 		this.btnAnadir = $('#anaaaaadir')
 		this.btnAnadir.on("click",this.pulsarAnadir.bind(this))
 	}
-
+     /**
+      * método para ir al formulario de alta al pulsar el botón añadir equipo
+      */
      pulsarAnadir(){
           this.controlador.pulsarAlta()
      }
